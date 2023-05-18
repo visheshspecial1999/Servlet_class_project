@@ -1,0 +1,51 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+ <servlet>
+	<servlet-name>multiplication</servlet-name>
+	<servlet-class>com.jsp.servlet_crud_operation_controller.mutliplication</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>multiplication</servlet-name>
+	<url-pattern>/doMultiplication</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>addition</servlet-name>
+	<servlet-class>com.jsp.servlet_crud_operation_controller.addition</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>addition</servlet-name>
+	<url-pattern>/doAddition</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>subtraction</servlet-name>
+	<servlet-class>com.jsp.servlet_crud_operation_controller.subtraction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>subtraction</servlet-name>
+	<url-pattern>/doSubtraction</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+	<servlet-name>division</servlet-name>
+	<servlet-class>com.jsp.servlet_crud_operation_controller.division</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>division</servlet-name>
+	<url-pattern>/doDivision</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>modulas</servlet-name>
+	<servlet-class>com.jsp.servlet_crud_operation_controller.modulas</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>modulas</servlet-name>
+	<url-pattern>/doModulas</url-pattern>
+	</servlet-mapping>
+</web-app>
