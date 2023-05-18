@@ -1,0 +1,59 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+	<welcome-file-list>
+	<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- configuration controller for user-login -->
+	<servlet>
+		<servlet-name>user-login</servlet-name>
+		<servlet-class>com.jsp_servlet_http_session.UserLogin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>user-login</servlet-name>
+		<url-pattern>/userlogin</url-pattern>
+	</servlet-mapping>
+	<!-- configuration controller for home -->
+	<servlet>
+		<servlet-name>home</servlet-name>
+		<servlet-class>com.jsp_servlet_http_session.About</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>home</servlet-name>
+		<url-pattern>/about</url-pattern>
+	</servlet-mapping>
+
+	<!-- configuration controller for contact -->
+	<servlet>
+		<servlet-name>contact</servlet-name>
+		<servlet-class>com.jsp_servlet_http_session.About</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>contact</servlet-name>
+		<url-pattern>/contact</url-pattern>
+	</servlet-mapping>
+
+	<!-- configuration controller for logout -->
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>com.jsp_servlet_http_session.logout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
+	<!-- configuration controller for admin-login -->
+	<servlet>
+		<servlet-name>admin-login</servlet-name>
+		<servlet-class>com.jsp_servlet_http_session.AdminLogin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>admin-login</servlet-name>
+		<url-pattern>/adminlogin</url-pattern>
+	</servlet-mapping>
+</web-app>

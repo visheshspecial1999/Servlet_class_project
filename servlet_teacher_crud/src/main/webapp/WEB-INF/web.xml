@@ -1,0 +1,55 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <!-- register controller configration -->
+	<servlet>
+		<servlet-name>user register</servlet-name>
+		<servlet-class>com.jsp.servlet_teacher_crud.controller.RegisterController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>user register</servlet-name>
+		<url-pattern>/registration</url-pattern>
+	</servlet-mapping>
+	
+	<!-- update controller configration -->
+	<servlet>
+		<servlet-name>user update</servlet-name>
+		<servlet-class>com.jsp.servlet_teacher_crud.controller.UpdateController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>user update</servlet-name>
+		<url-pattern>/updation</url-pattern>
+	</servlet-mapping>
+	
+	<!-- search controller configration -->
+	<servlet>
+		<servlet-name>user update</servlet-name>
+		<servlet-class>com.jsp.servlet_teacher_crud.controller.SearchController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>user update</servlet-name>
+		<url-pattern>/Search</url-pattern>
+	</servlet-mapping>
+	
+	<!-- delete controller configration -->
+	<servlet>
+		<servlet-name>user delete</servlet-name>
+		<servlet-class>com.jsp.servlet_teacher_crud.controller.DeleteController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>user delete</servlet-name>
+		<url-pattern>/delete</url-pattern>
+	</servlet-mapping>
+	
+	<!-- display controller configration -->
+	<servlet>
+		<servlet-name>user display</servlet-name>
+		<servlet-class>com.jsp.servlet_teacher_crud.controller.DisplayController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>user display</servlet-name>
+		<url-pattern>/display</url-pattern>
+	</servlet-mapping>
+</web-app>
