@@ -7,8 +7,51 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import com.jsp.Customer_Management_v2.dto.Customer;
+
 public class CustomerDao {
-	Scanner s = new Scanner(System.in);
+	
+	// getByCustomerId method
+	public int getByCustomerId(int customerId) {
+		int id=0;
+		Connection connection = null;
+		try {
+			// step-1 load driver
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			// step-2 create connection
+			String url = "jdbc:mysql://localhost:3306/customer_management_project_v2";
+			String username = "root";
+			String password = "Vishesh@123";
+			connection = DriverManager.getConnection(url, username, password);
+			/*
+			 * since we are using preparedStatement insted of Statement. so the normal flow
+			 * of program will be diverted
+			 */
+			String select = "select customerId from customer where customerId=?";
+
+			// step-3 create statement(preparedStatement)
+			PreparedStatement preparedStatement = connection.prepareStatement(select);
+			preparedStatement.setInt(1, customerId);
+
+			// step-4 execute query
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				 id=resultSet.getInt("customerId");
+				 return id;
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return id;
+	}
 
 	// addCustomer method
 	public void addCustomer(int customerId, String customerName, String customerEmail, long customerPhone) {
@@ -36,7 +79,7 @@ public class CustomerDao {
 
 			// step-4 execute query
 			preparedStatement.execute();
-			System.out.println("customer.................added successfully");
+//			System.out.println("customer.................added successfully");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -74,9 +117,9 @@ public class CustomerDao {
 			// step-4 execute query
 			int id = preparedStatement.executeUpdate();
 			if (id != 0) {
-				System.out.println("customer.................deleted successfully");
+//				System.out.println("customer.................deleted successfully");
 			} else {
-				System.out.println("customer............id not present in database");
+//				System.out.println("customer............id not present in database");
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
@@ -118,9 +161,9 @@ public class CustomerDao {
 			// step-4 execute query
 			int id = preparedStatement.executeUpdate();
 			if (id != 0) {
-				System.out.println("customer.................updated successfully");
+//				System.out.println("customer.................updated successfully");
 			} else {
-				System.out.println("customer id not found in database");
+//				System.out.println("customer id not found in database");
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
@@ -159,10 +202,10 @@ public class CustomerDao {
 			// step-4 execute query
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				System.out.println("customerId: " + resultSet.getInt("customerId"));
-				System.out.println("customerName: " + resultSet.getString("customerName"));
-				System.out.println("customerEmail: " + resultSet.getString("customerEmail"));
-				System.out.println("customerPhone: " + resultSet.getLong("customerPhone"));
+//				System.out.println("customerId: " + resultSet.getInt("customerId"));
+//				System.out.println("customerName: " + resultSet.getString("customerName"));
+//				System.out.println("customerEmail: " + resultSet.getString("customerEmail"));
+//				System.out.println("customerPhone: " + resultSet.getLong("customerPhone"));
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();

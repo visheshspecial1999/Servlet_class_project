@@ -24,10 +24,10 @@
           <a class="nav-link active text-dark" aria-current="page" href="ownerLogin.jsp" target="blanck_">LoginOwner</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="#">LoginAdmin</a>
+          <a class="nav-link text-dark" href="adminLogin.jsp" target="blank_">LoginAdmin</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="#">LoginCustomer</a>
+          <a class="nav-link text-dark" href="customerLogin.jsp">LoginCustomer</a>
         </li>
       </ul>
     </div>

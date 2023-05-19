@@ -20,14 +20,23 @@ public class OwnerUpdateController extends HttpServlet{
 		int adminId=Integer.parseInt(req.getParameter("adminId"));
 		String adminName=req.getParameter("adminName");
 		String adminEmail=req.getParameter("adminEmail");
+		HttpSession httpSession=req.getSession();
 		AdminService adminService=new AdminService();
-		String st=adminService.updateAdmin(adminId, adminName, adminEmail);
 		PrintWriter printWriter=resp.getWriter();
+		if(httpSession.getAttribute("apple")!=null) {
+		String st=adminService.updateAdmin(adminId, adminName, adminEmail);
 		printWriter.write("<html><body>");
 		printWriter.write(st);
 		printWriter.write("</body></html>");
 		RequestDispatcher dispatcher=req.getRequestDispatcher("updateAdmin.jsp");
 		dispatcher.include(req, resp);
-		
+		}
+		else {printWriter.write("<html><body>");
+			 printWriter.
+			  write("<h3 style='color:red'>you session is time out please login again</h3>");
+			 printWriter.write("</body></html>");
+			 RequestDispatcher dispatcher=req.getRequestDispatcher("ownerLogin.jsp");
+			  dispatcher.include(req, resp);
+		}
 	}
 }

@@ -97,6 +97,54 @@ public class ProductDao {
 		return id1;
 	}
 	
+	// productId method
+	public int productId(int productId) {
+
+		int id1 = 0;
+		Connection connection = null;
+		try {
+			// step-1 load Driver
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			// step-2 create connection
+			String url = "jdbc:mysql://localhost:3306/Customer_Management_Project_v2";
+			String username = "root";
+			String password = "Vishesh@123";
+			connection = DriverManager.getConnection(url, username, password);
+			/*
+			 * since we are using prepared statement hence normal flow of program will be
+			 * diverted
+			 */
+			String select = "select  productId from product where productId=?";
+			// step-3 create statement(preparedStatement)
+			PreparedStatement preparedStatement = connection.prepareStatement(select);
+			preparedStatement.setInt(1, productId);
+
+			// step-4 execute query
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				id1 = resultSet.getInt("productId");
+			}
+			return id1;
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+
+		// step-5 close connection
+		finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return id1;
+	
+		
+	
+		
+	}
+	
 	// custemerIdGetByProductId method()
 	public int customerIdGetByProductId(int productId) {
 		int id1 = 0;
@@ -168,7 +216,7 @@ public class ProductDao {
 
 			// step-4 execute query
 			preparedStatement.execute();
-			System.out.println("product.............inserted");
+//			System.out.println("product.............inserted");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -210,9 +258,9 @@ public class ProductDao {
 			// step-4 execute query
 			int id = preparedStatement.executeUpdate();
 			if (id != 0) {
-				System.out.println("product.............updated");
+//				System.out.println("product.............updated");
 			} else {
-				System.out.println("product id is not present in database");
+//				System.out.println("product id is not present in database");
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
@@ -254,9 +302,9 @@ public class ProductDao {
 			// step-4 execute query
 			int id = preparedStatement.executeUpdate();
 			if (id != 0) {
-				System.out.println("product.............deleted");
+//				System.out.println("product.............deleted");
 			} else {
-				System.out.println("product id is not present in database");
+//				System.out.println("product id is not present in database");
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
@@ -299,9 +347,9 @@ public class ProductDao {
 			// step-4 execute query
 			int id = preparedStatement.executeUpdate();
 			if (id != 0) {
-				System.out.println("product............price updated");
+//				System.out.println("product............price updated");
 			} else {
-				System.out.println("product id is not present in database");
+//				System.out.println("product id is not present in database");
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
@@ -344,9 +392,9 @@ public class ProductDao {
 			// step-4 execute query
 			int id = preparedStatement.executeUpdate();
 			if (id != 0) {
-				System.out.println("product status.............updated");
+//				System.out.println("product status.............updated");
 			} else {
-				System.out.println("product id is not present in database");
+//				System.out.println("product id is not present in database");
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
@@ -388,10 +436,10 @@ public class ProductDao {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				id1 = resultSet.getInt("productId");
-				System.out.println("productId: " + resultSet.getInt("productId"));
-				System.out.println("productName: " + resultSet.getString("productName"));
-				System.out.println("productPrice: " + resultSet.getDouble("productPrice"));
-				System.out.println("productAvailable: " + resultSet.getBoolean("productAvailable"));
+//				System.out.println("productId: " + resultSet.getInt("productId"));
+//				System.out.println("productName: " + resultSet.getString("productName"));
+//				System.out.println("productPrice: " + resultSet.getDouble("productPrice"));
+//				System.out.println("productAvailable: " + resultSet.getBoolean("productAvailable"));
 			}
 			return id1;
 		} catch (ClassNotFoundException | SQLException e) {

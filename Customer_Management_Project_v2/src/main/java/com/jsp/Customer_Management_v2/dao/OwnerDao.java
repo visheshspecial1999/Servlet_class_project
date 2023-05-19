@@ -97,7 +97,7 @@ public class OwnerDao {
 			// execute query
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
-				System.out.println(resultSet.getString("ownerName"));
+//				System.out.println(resultSet.getString("ownerName"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

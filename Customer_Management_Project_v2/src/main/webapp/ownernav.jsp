@@ -27,7 +27,7 @@
           <a class="nav-link text-dark" href="deleteAdmin.jsp" target="blank_">DeleteAdmin</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="#">Logout</a>
+          <a class="nav-link text-dark" href="ownerLogout">Logout</a>
         </li>
       </ul>
     </div>

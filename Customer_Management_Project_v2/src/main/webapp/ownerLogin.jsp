@@ -4,7 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>ownerLogin</title>
+<title>OwnerLogin</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
 </head>
 <body><section class="h-100 h-custom" style="background-color: #8fc4b7;">
   <div class="container py-5 h-100">
@@ -20,24 +25,27 @@
             <form class="px-md-2" action="ownerlogin" method="post">
 
               <div class="form-outline mb-4">
+              <label class="form-label" for="form3Example1q">OwnerId</label>
                 <input type="text" name="ownerId" class="form-control" placeholder="enter owner id"/>
-                <label class="form-label" for="form3Example1q">OwnerId</label>
+                
               </div>&nbsp;
          
               <div class="form-outline mb-4">
+              <label class="form-label" for="form3Example1q">OwnerPassword</label>
                 <input type="text" name="ownerPassword" class="form-control" placeholder="enter owner password"/>
-                <label class="form-label" for="form3Example1q">OwnerPassword</label>
+                
               </div>&nbsp;
               
               <div class="form-outline mb-4">
+              <label class="form-label" for="form3Example1q">OwnerPasscode</label>
                 <input type="text" name="ownerPasscode" class="form-control" placeholder="enter owner passcode"/>
-                <label class="form-label" for="form3Example1q">OwnerPasscode</label>
+                
               </div>&nbsp;
               
               <div>
               <button type="submit" class="btn btn-success btn-lg mb-1">Submit</button>&nbsp;&nbsp;&nbsp;
               <button type="reset" class="btn btn-success btn-lg mb-1">Reset</button>&nbsp;&nbsp;&nbsp;
-              <a href="" target="blank_"><button type="reset" class="btn btn-success btn-lg mb-1">Show-Users</button></a>
+              <a href="ownerDisplay" target="blank_" ><button type="submit"  class="btn btn-success btn-lg mb-1">ShowOwners</button></a>
               </div>
             </form>
           </div>
@@ -46,9 +54,7 @@
     </div>
   </div>
 </section>
-
 <div>
-
 </div>
 </body>
 </html>

@@ -7,142 +7,52 @@ import com.jsp.Customer_Management_v2.dao.ProductDao;
 import com.jsp.Customer_Management_v2.dto.Product;
 
 public class ProductService {
-	Scanner s = new Scanner(System.in);
-
+	ProductDao productDao = new ProductDao();
 	// customer login method
-	public void customerLogin(int customerId, long customerPhone) {
-		ProductDao productDao = new ProductDao();
+	public int customerLogin(int customerId, long customerPhone) {
+		
 		if ((productDao.customerId(customerId) == customerId)
 				&& ((productDao.customerPhone(customerPhone) == customerPhone))) {
-			System.out.println("welcome to customer Dashboard");
-			while (true) {
-
-				System.out.println();
-				System.out.println(
-						"1.addProduct\n2.updateProduct\n3.deleteProduct\n4.updateProductPrice\n5.updateProductAvailable\n6.displayCustomerDetails\n7.displayProductDetails\n8.Logout");
-				System.out.println("Enter your choice: ");
-				int choice = s.nextInt();
-				switch (choice) {
-				case 1: {
-
-					Product product = new Product();
-					System.out.println("Enter product price: ");
-					double productPrice = s.nextDouble();
-					if (productPrice <= 7000) {
-						product.setProductPrice(productPrice);
-
-						System.out.println("Enter productId: ");
-						int productId = s.nextInt();
-						product.setProductId(productId);
-						System.out.println("Enter productName: ");
-						String productName = s.next();
-						productName += s.nextLine();
-						product.setProductName(productName);
-
-						System.out.println("Enter productAvailability: ");
-						boolean productAvailability = s.nextBoolean();
-						product.setProductAvailable(productAvailability);
-						ProductDao productDao1 = new ProductDao();
-						productDao1.insertProduct(product, customerId);
-					} else {
-						System.out.println(
-								"product cost is greater than selected range.so you can not add this product in database");
-					}
-				}
-					break;
-
-				case 2: {
-					ProductDao productDao1 = new ProductDao();
-					Product product = new Product();
-					System.out.println("Enter productId: ");
-					int productId = s.nextInt();
-					if (productDao.customerIdGetByProductId(productId) == customerId) {
-						product.setProductId(productId);
-						System.out.println("Enter productName: ");
-						String productName = s.next();
-						productName += s.nextLine();
-						product.setProductName(productName);
-						System.out.println("Enter product price: ");
-						double productPrice = s.nextDouble();
-						product.setProductPrice(productPrice);
-						System.out.println("Enter productAvailability: ");
-						boolean productAvailability = s.nextBoolean();
-						product.setProductAvailable(productAvailability);
-
-						productDao1.updateProduct(product);
-					} else {
-						System.out.println("you can not update product due to insafficient previlage");
-					}
-				}
-					break;
-				case 3: {
-					System.out.println("Enter productId: ");
-					int productId = s.nextInt();
-					if (productDao.customerIdGetByProductId(productId) == customerId) {
-						ProductDao productDao1 = new ProductDao();
-						productDao1.deleteProduct(productId);
-					} else {
-						System.out.println("you can not delete product due to insafficient previlage ");
-					}
-				}
-					break;
-				case 4: {
-					System.out.println("Enter productId: ");
-					int productId = s.nextInt();
-					if (productDao.customerIdGetByProductId(productId) == customerId) {
-						System.out.println("Enter productPrice: ");
-						double productPrice = s.nextDouble();
-						ProductDao productDao1 = new ProductDao();
-						productDao1.updateProductPrice(productId, productPrice);
-					} else {
-						System.out.println("you can not update productPrice due to insafficient previlage");
-					}
-				}
-					break;
-				case 5: {
-					System.out.println("Enter productId: ");
-					int productId = s.nextInt();
-					if (productDao.customerIdGetByProductId(productId) == customerId) {
-						System.out.println("Enter productAvailable: ");
-						boolean productAvailable = s.nextBoolean();
-						ProductDao productDao1 = new ProductDao();
-						productDao1.updateProductAvailable(productId, productAvailable);
-					} else {
-						System.out.println("you can not  productAvalitiyStatus due to insafficient previlage");
-					}
-				}
-					break;
-				case 6: {
-					CustomerDao customerDao = new CustomerDao();
-					System.out.println("Enter customerId: ");
-					int customeId = s.nextInt();
-					customerDao.displayCustomerDetails(customerId);
-				}
-					break;
-				case 7: {
-					System.out.println("Enter productId: ");
-					int productId = s.nextInt();
-					ProductDao productDao1 = new ProductDao();
-					if (productDao1.displayProductDetails(productId) == productId) {
-
-					} else {
-						System.out.println("product id not found in database");
-					}
-				}
-					break;
-				case 8: {
-					System.out.println("Logout.............successfully");
-					System.exit(choice);
-				}
-					break;
-
-				default: {
-					System.out.println("invalid choice");
-				}
-				}
-			}
+//			System.out.println("welcome to customer Dashboard");
+			return 1;
 		} else {
-			System.out.println("invalid credential!!!");
+//			System.out.println("invalid credential!!!");
+			return 0;
 		}
 	}
+	
+	// productId method
+		public int productId(int productId) {
+			return productDao.productId(productId);
+		}
+		
+		// insertProduct by customer
+		public void insertProduct(Product product,int customerId) {
+			productDao.insertProduct(product, customerId);
+		}
+		
+		// updateProduct by customer
+		public void updateProduct(Product product) {
+			productDao.updateProduct(product);
+		}
+		
+		// deleteProduct
+		public void deleteProduct(int productId) {
+			productDao.deleteProduct(productId);
+		}
+		
+		// custemerIdGetByProductId method()
+		public int customerIdGetByProductId(int productId) {
+			return productDao.customerIdGetByProductId(productId);
+		}
+		
+		// updateProductPrice method
+		public void updateProductPrice(int productId, double productPrice) {
+			productDao.updateProductPrice(productId, productPrice);
+		}
+		
+		// updateProductAvailable method
+		public void updateProductAvailable(int productId, boolean productAvailable) {
+			productDao.updateProductAvailable(productId, productAvailable);
+		}
 }

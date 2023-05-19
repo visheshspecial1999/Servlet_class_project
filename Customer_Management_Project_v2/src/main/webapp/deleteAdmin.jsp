@@ -4,7 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>deleteAdmin</title>
+<title>DeleteAdmin</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
 </head>
 <body>
 
@@ -20,7 +25,7 @@
 								<div class="row justify-content-center">
 									<div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-										<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Delete-Admin
+										<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">DeleteAdmin
 										</p>
 
 										<form class="mx-1 mx-md-4" action="deleteAdmin" method="post">
@@ -34,7 +39,7 @@
 												</div>
 											</div>
 											<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-												<input type="submit" value="submit">&nbsp;&nbsp;&nbsp;&nbsp;
+												<input type="submit" value="delete">&nbsp;&nbsp;&nbsp;&nbsp;
 												<input type="reset" value="reset">
 											</div>
 										</form>

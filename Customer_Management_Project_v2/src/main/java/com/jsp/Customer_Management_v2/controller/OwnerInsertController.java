@@ -37,9 +37,11 @@ public class OwnerInsertController extends HttpServlet {
 		RequestDispatcher dispatcher=req.getRequestDispatcher("addAdmin.jsp");
 		dispatcher.include(req, resp);
 		
-		  } else { printWriter.
-		  write("<h3 style='color:red'>you session is time out please login again</h3>"
-		  ); RequestDispatcher dispatcher=req.getRequestDispatcher("ownerLogin.jsp");
+		  } else {printWriter.write("<html><body>");
+			  printWriter.
+		  write("<h3 style='color:red'>you session is time out please login again</h3>" ); 
+			  printWriter.write("</body></html>");  
+			  RequestDispatcher dispatcher=req.getRequestDispatcher("ownerLogin.jsp");
 		  dispatcher.include(req, resp); }
 		 
 	}

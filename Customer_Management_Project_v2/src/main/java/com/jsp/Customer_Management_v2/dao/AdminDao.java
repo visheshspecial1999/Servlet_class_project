@@ -32,7 +32,7 @@ public class AdminDao {
 
 			// step-4 execute query
 			preparedStatement.execute();
-			System.out.println("data............inserted");
+//			System.out.println("data............inserted");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -112,7 +112,10 @@ public class AdminDao {
 			// step-4 execute query
 			boolean b=preparedStatement.execute();
 			if(b=true) {
-			return "<h3 style='color:green'>data.............deleted</h3>";
+			return "<h3 style='color:green'>data.............updated successfully</h3>";
+			}
+			else {
+				return "<h3 style='color:red'>data........not updated successfully</h3>";
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
